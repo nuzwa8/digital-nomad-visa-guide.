@@ -1,0 +1,241 @@
+/**
+ * SSM Digital Nomad Guide (CSS)
+ * Contains all styles for the Digital Nomad Visa dashboard under the .ssm-dng namespace.
+ * Defines design tokens for consistent spacing, colors, and typography.
+ */
+
+/* --------------------------------------------------------------------------
+ * Design Tokens
+ * -------------------------------------------------------------------------- */
+:root {
+    --ssm-dng-primary-color: #0073aa; /* WordPress primary blue */
+    --ssm-dng-secondary-color: #1e87f0;
+    --ssm-dng-text-color: #333;
+    --ssm-dng-background-color: #f7f7f7;
+    --ssm-dng-card-background: #ffffff;
+    --ssm-dng-border-color: #ddd;
+    --ssm-dng-spacing-s: 8px;
+    --ssm-dng-spacing-m: 16px;
+    --ssm-dng-spacing-l: 24px;
+    --ssm-dng-border-radius: 6px;
+    --ssm-dng-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+ * Base Layout and Typography
+ * -------------------------------------------------------------------------- */
+.ssm-root {
+    /* Main container for the app, ensures isolation */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: var(--ssm-dng-text-color);
+    background-color: var(--ssm-dng-background-color);
+    padding: var(--ssm-dng-spacing-l);
+    border-radius: var(--ssm-dng-border-radius);
+    margin-top: var(--ssm-dng-spacing-m);
+}
+
+.ssm-dng-section-heading {
+    border-bottom: 2px solid var(--ssm-dng-border-color);
+    padding-bottom: var(--ssm-dng-spacing-s);
+    margin-top: var(--ssm-dng-spacing-l);
+    margin-bottom: var(--ssm-dng-spacing-m);
+}
+
+/* --------------------------------------------------------------------------
+ * Filter Bar
+ * -------------------------------------------------------------------------- */
+.ssm-dng-filter-bar {
+    display: flex;
+    gap: var(--ssm-dng-spacing-m);
+    margin-bottom: var(--ssm-dng-spacing-l);
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens/iPad */
+}
+
+.ssm-dng-filter-bar input[type="search"],
+.ssm-dng-filter-bar select {
+    padding: var(--ssm-dng-spacing-s);
+    border: 1px solid var(--ssm-dng-border-color);
+    border-radius: var(--ssm-dng-border-radius);
+    flex-grow: 1;
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+.ssm-dng-filter-bar button {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+ * Grid and Country Card Layout
+ * -------------------------------------------------------------------------- */
+.ssm-dng-list-grid {
+    display: grid;
+    /* Default grid for larger screens (e.g. 3 columns) */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--ssm-dng-spacing-l);
+    align-items: stretch; /* Cards maintain same height */
+}
+
+.ssm-dng-card {
+    background-color: var(--ssm-dng-card-background);
+    border: 1px solid var(--ssm-dng-border-color);
+    border-radius: var(--ssm-dng-border-radius);
+    padding: var(--ssm-dng-spacing-m);
+    box-shadow: var(--ssm-dng-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+.ssm-dng-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ssm-dng-country-title {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: var(--ssm-dng-spacing-m);
+    padding-bottom: var(--ssm-dng-spacing-s);
+    border-bottom: 1px solid var(--ssm-dng-border-color);
+}
+
+.ssm-dng-details-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for detail and value */
+    gap: var(--ssm-dng-spacing-s);
+    margin-bottom: var(--ssm-dng-spacing-m);
+}
+
+.ssm-dng-details-table > div {
+    /* Ensures labels and values align well */
+    display: flex;
+    flex-direction: column;
+    padding: var(--ssm-dng-spacing-s) 0;
+    border-bottom: 1px dashed var(--ssm-dng-border-color);
+}
+
+.ssm-dng-details-table span {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.ssm-dng-guide-heading {
+    font-size: 1.2em;
+    margin-top: var(--ssm-dng-spacing-s);
+    margin-bottom: var(--ssm-dng-spacing-s);
+}
+
+.ssm-dng-apply-link {
+    margin-top: auto; /* Pushes the button to the bottom */
+    text-align: center;
+    padding: var(--ssm-dng-spacing-s) var(--ssm-dng-spacing-m);
+    border: none;
+    text-decoration: none;
+    border-radius: var(--ssm-dng-border-radius);
+    font-weight: bold;
+    background-color: var(--ssm-dng-primary-color);
+    color: var(--ssm-dng-card-background) !important;
+}
+
+.ssm-dng-apply-link:hover {
+    background-color: var(--ssm-dng-secondary-color);
+}
+
+.ssm-dng-disclaimer {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: var(--ssm-dng-spacing-s);
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+ * Bonus Section Styles (Digital Banks, Family, CV)
+ * -------------------------------------------------------------------------- */
+.ssm-dng-bonus-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--ssm-dng-spacing-m);
+    margin-top: var(--ssm-dng-spacing-m);
+}
+
+.ssm-dng-bonus-card {
+    background-color: var(--ssm-dng-card-background);
+    border-left: 5px solid var(--ssm-dng-secondary-color);
+    padding: var(--ssm-dng-spacing-m);
+    border-radius: var(--ssm-dng-border-radius);
+    box-shadow: var(--ssm-dng-shadow);
+}
+
+.ssm-dng-bonus-card h3 {
+    margin-top: 0;
+    color: var(--ssm-dng-secondary-color);
+}
+
+/* --------------------------------------------------------------------------
+ * Loading and Error States
+ * -------------------------------------------------------------------------- */
+.ssm-dng-loading-state,
+.ssm-dng-error-message,
+.ssm-dng-no-data {
+    text-align: center;
+    padding: var(--ssm-dng-spacing-l);
+    grid-column: 1 / -1; /* Center across the entire grid */
+    font-size: 1.2em;
+    color: #666;
+}
+
+.ssm-dng-loading-state p {
+    /* Simple loading animation effect */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* --------------------------------------------------------------------------
+ * Media Queries for Responsiveness (Mobile/Tablet)
+ * -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .ssm-dng-list-grid {
+        /* On small screens (Mobile/Portrait Tablet), stack cards */
+        grid-template-columns: 1fr;
+    }
+
+    .ssm-root {
+        padding: var(--ssm-dng-spacing-m);
+    }
+    
+    .ssm-dng-filter-bar {
+        /* Filters stack vertically on mobile */
+        flex-direction: column;
+        gap: var(--ssm-dng-spacing-s);
+    }
+    
+    .ssm-dng-filter-bar input[type="search"],
+    .ssm-dng-filter-bar select,
+    .ssm-dng-filter-bar button {
+        width: 100%;
+        min-width: 100%; /* Overrides the 200px min-width */
+    }
+
+    .ssm-dng-bonus-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+ * RTL Support (for Urdu/Arabic UI) - Kept for future flexibility
+ * -------------------------------------------------------------------------- */
+/* WordPress handles the [dir="rtl"] attribute on the body tag */
+[dir="rtl"] .ssm-dng-bonus-card {
+    /* Moves the decorative border from left to right in RTL */
+    border-left: none;
+    border-right: 5px solid var(--ssm-dng-secondary-color);
+}
